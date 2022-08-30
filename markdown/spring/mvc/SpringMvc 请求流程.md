@@ -4,17 +4,19 @@
 
 ## 一、请求经过的主要方法
 
-|           主键           |       说明       |          默认初始化的类(org.springframework.web.*)           |                           作用                           |                默认                |
-| :----------------------: | :--------------: | :----------------------------------------------------------: | :------------------------------------------------------: | :--------------------------------: |
-|   `multipartResolver`    |  文件上传解析器  |                  默认为null,需自己提供实现                   |                   用于文件上传相关配置                   |                                    |
-|      localeResolver      |   国际化解析器   |         servlet.i18n.**AcceptHeaderLocaleResolver**          |               Accept-Language获取语言配置                |                                    |
-|      themeResolver       |    主题解析器    |             servlet.theme.**FixedThemeResolver**             |                                                          |                                    |
-|     `handlerMapping`     |   处理器映射器   | servlet.handler.**BeanNameUrlHandlerMapping**<br /> servlet.mvc.method.annotation.**RequestMappingHandlerMapping**<br />   servlet.function.support.**RouterFunctionMapping** |             通过请求地址匹配可以处理的Handle             |     BeanNameUrlHandlerMapping      |
-|     `handlerAdapter`     |   处理器适配器   | servlet.mvc.**HttpRequestHandlerAdapter**<br /> servlet.mvc.**SimpleControllerHandlerAdapter**<br /> servlet.mvc.method.annotation.**RequestMappingHandlerAdapter** <br />servlet.function.support.**HandlerFunctionAdapter** | 对上一步获取到的Handle进行处理，并执行Controller中的方法 |   SimpleControllerHandlerAdapter   |
-| handlerExceptionResolver | 处理器异常解析器 | mvc.method.annotation.**ExceptionHandlerExceptionResolver**<br />   servlet.mvc.annotation.**ResponseStatusExceptionResolver**<br />    servlet.mvc.support.**DefaultHandlerExceptionResolver** |                         异常处理                         |     HandlerExceptionResolvers      |
-|    viewNameTranslator    |  视图名称翻译器  |        servlet.view.**InternalResourceViewResolver**         |                                                          | DefaultRequestToViewNameTranslator |
-|       viewResolver       |    试图解析器    |        servlet.view.**InternalResourceViewResolver**         |               解析Modle中的数据填充到View                |                                    |
-|     flashMapManager      |                  |          servlet.support.**SessionFlashMapManager**          |                                                          |                                    |
+> DispatcherServlet.properties
+
+|           主键           |       说明       |          默认初始化的类(org.springframework.web.*)           |                             作用                             |                默认                |
+| :----------------------: | :--------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :--------------------------------: |
+|   `multipartResolver`    |  文件上传解析器  |                  默认为null,需自己提供实现                   |                     用于文件上传相关配置                     |                                    |
+|      localeResolver      |   国际化解析器   |         servlet.i18n.**AcceptHeaderLocaleResolver**          |                 Accept-Language获取语言配置                  |                                    |
+|      themeResolver       |    主题解析器    |             servlet.theme.**FixedThemeResolver**             |                                                              |                                    |
+|     `handlerMapping`     |   处理器映射器   | servlet.handler.**BeanNameUrlHandlerMapping**<br /> servlet.mvc.method.annotation.**RequestMappingHandlerMapping**<br />   servlet.function.support.**RouterFunctionMapping** |              通过请求地址匹配可以处理的Handler               |     BeanNameUrlHandlerMapping      |
+|     `handlerAdapter`     |   处理器适配器   | servlet.mvc.**HttpRequestHandlerAdapter**<br /> servlet.mvc.**SimpleControllerHandlerAdapter**<br /> servlet.mvc.method.annotation.**RequestMappingHandlerAdapter** <br />servlet.function.support.**HandlerFunctionAdapter** | 对上一步获取到的Handler进行处理(参数解析、绑定、返回值处理)，并执行Controller中的方法 |   SimpleControllerHandlerAdapter   |
+| handlerExceptionResolver | 处理器异常解析器 | mvc.method.annotation.**ExceptionHandlerExceptionResolver**<br />   servlet.mvc.annotation.**ResponseStatusExceptionResolver**<br />    servlet.mvc.support.**DefaultHandlerExceptionResolver** |                           异常处理                           |     HandlerExceptionResolvers      |
+|    viewNameTranslator    |  视图名称翻译器  |        servlet.view.**InternalResourceViewResolver**         |                                                              | DefaultRequestToViewNameTranslator |
+|       viewResolver       |    试图解析器    |        servlet.view.**InternalResourceViewResolver**         |                 解析Modle中的数据填充到View                  |                                    |
+|     flashMapManager      |                  |          servlet.support.**SessionFlashMapManager**          |                                                              |                                    |
 
 ### 1. 简单流程
 
@@ -166,6 +168,10 @@ protected void registerHandlerMethod(Object handler, Method method, T mapping) {
 ![注册到mappingRegistry的内容](https://vip2.loli.io/2022/08/14/IaYizxtC6rVKbZD.png)
 
 ## 四、HandleAdapter
+
+> 充当`request,reponse`与我们定义的各种形式`handler`之间的参数适配，返回值适配。
+>
+> 为SpringMVC带来的多样化参数接收形式，以及简便的返回值操作
 
 ### 4.1 怎样找到合适的HandleAdapter
 
