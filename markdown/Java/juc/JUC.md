@@ -18,13 +18,13 @@
 
 ![函数式方法命名格式](C:\Users\admin\Desktop\函数式方法命名格式.png)
 
-![image-20220102190306654](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102190306654.png)
+<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102190306654.png" alt="image-20220102190306654" style="zoom:50%;" />
 
-![image-20220102190354674](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102190354674.png)
+<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102190354674.png" alt="image-20220102190354674" style="zoom:50%;" />
 
 ![image-20220102202432965](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102202432965.png)
 
-![image-20220102215536103](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102215536103.png)
+<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20220102215536103.png" alt="image-20220102215536103" style="zoom:50%;" />
 
 ## sync字节码分析
 

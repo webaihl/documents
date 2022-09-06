@@ -1,8 +1,6 @@
----
 
----
 
-# 集群
+# Redis 集群
 
 ## 节点分布
 
@@ -94,7 +92,7 @@ clusterState.myself == clusterState.solts[i]
 
 ### 怎样分片
 
-> 需要先安装ruby
+> 需要先安装ruby，5.0之后集成到了`redis-cli`
 
 ```sh
 # 人工使用redis-trib工具
@@ -275,4 +273,10 @@ Cluster Manager Commands:
 
 For check, fix, reshard, del-node, set-timeout you can specify the host and port of any working node in the cluster.
 ```
+
+### 参考
+
+[Redis 6.0 集群搭建实践](https://segmentfault.com/a/1190000038995016)
+
+[Redis 5.0 redis-cli --cluster help说明](https://www.cnblogs.com/zhoujinyi/p/11606935.html)
 

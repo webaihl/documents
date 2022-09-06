@@ -65,8 +65,8 @@ B树
 
 ### 建表时创建
 
-![建表时索引](https://vip2.loli.io/2022/06/12/Y6lE3NUx4PgLbfC.png)
+<img src="https://vip2.loli.io/2022/06/12/Y6lE3NUx4PgLbfC.png" alt="建表时索引" style="zoom:67%;" />
 
 ### 表存在时，创建索引
 
-![存在时创建](https://vip2.loli.io/2022/06/12/bctdCoGTmNULDAy.png)
+<img src="https://vip2.loli.io/2022/06/12/bctdCoGTmNULDAy.png" alt="存在时创建" style="zoom:67%;" />
